@@ -1,0 +1,14 @@
+
+
+# Byte-compiled
+*.pyc
+__pycache__/
+
+# Django
+db.sqlite3
+media/
+upload/
+staticfiles/
+
+# Environment
+.env
