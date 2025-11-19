@@ -60,3 +60,14 @@ Windows:
 # Run the server
 python manage.py runserver
 
+
+# 🤝 Contributing
+Feel free to fork this repo and submit pull requests.
+
+
+# 📧 Contact
+Developer: Agath Pream
+GitHub: https://github.com/4GATH
+
+Project Repo: https://github.com/4GATH/RentHub
+
