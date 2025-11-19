@@ -1,0 +1,29 @@
+{% extends 'base.html'%} 
+
+{% load static %}
+{% block title %}home{% endblock%} 
+
+{%block style %}
+<link rel="stylesheet" href="{% static 'css/home.css'%}" />
+{% endblock%}
+
+{% block content%}
+<h1>prodect page</h1>
+<div class="card mb-3">
+  <img src="/media/{{abc.image}}"class="card-img-top" alt="...">
+  <div class="card-body">
+     <h5 class="card-title">{{abc.name}}</h5>
+     <p class="card-text">{{abc.subcategory}}</p>
+     <p class="card-text">{{abc.discretion }}</p>
+      <h6 class="card-text">{{abc.price}}</h6>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+       {% if abc.is_available %}
+              <span class="badge badge-success">Available</span>
+              <a href="/add_rental/{{ abc.id }}/" class="btn btn-primary btn-sm mt-2">Rent Now</a>
+            {% else %}
+              <span class="badge badge-danger">Rented Out</span>
+              <button class="btn btn-secondary btn-sm mt-2" disabled>Not Available</button>
+            {% endif %}
+  </div>
+</div>
+{% endblock%} 

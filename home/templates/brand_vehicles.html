@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ brand.brand_name }} Vehicles{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <div class="d-flex align-items-center mb-3">
+    {% if brand.logo %}
+      <img src="{{ brand.logo.url }}" alt="{{ brand.brand_name }}" style="height:80px; object-fit:contain;" class="me-3">
+    {% endif %}
+    <h2>{{ brand.brand_name }}</h2>
+  </div>
+
+  {% if vehicles %}
+    <div class="row">
+      {% for v in vehicles %}
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+          {% if v.image %}
+            <img src="{{ v.image.url }}" class="card-img-top" alt="{{ v.name }}" style="height:180px; object-fit:cover;">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{ v.name }}</h5>
+            <p class="card-text">Price: ₹{{ v.price }}</p>
+            {% if v.is_available %}
+              <a href="{% url 'add_rental' v.id %}" class="btn btn-primary btn-sm">Rent Now</a>
+            {% else %}
+              <span class="badge bg-danger">Rented</span>
+            {% endif %}
+            <a href="{% url 'viewproduct' v.id %}" class="btn btn-outline-secondary btn-sm ms-2">View</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="text-muted">No vehicles available for this brand yet.</p>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Add Rental{% endblock %}
+{% block content %}
+<div class="container mt-4">
+  <h2 class="mb-4">Record a New Rental</h2>
+  <div class="card p-4 shadow-sm">
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <h2 class="mb-4">
+      {% if edit_mode %}Edit Rental
+      
+      {% else %} Add Rental{% endif %}
+      </h2>
+
+      <button type="submit" class="btn btn-success w-100 mt-2">Save Rental</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

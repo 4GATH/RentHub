@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Car Rental Dashboard</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+  />
+  <style>
+    body {
+      background-color: #f4f6f9;
+      font-family: 'Poppins', sans-serif;
+    }
+    .sidebar {
+      height: 100vh;
+      background-color: #212529;
+      color: #fff;
+      padding: 20px 0;
+      position: fixed;
+    }
+    .sidebar a {
+      color: #adb5bd;
+      text-decoration: none;
+      display: block;
+      padding: 10px 25px;
+      transition: 0.3s;
+    }
+    .sidebar a:hover, .sidebar a.active {
+      background-color: #343a40;
+      color: #fff;
+    }
+    .main-content {
+      margin-left: 220px;
+      padding: 20px;
+    }
+    .hidden-section {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h5 class="text-center mb-4">Dashboard Menu</h5>
+    <a href="#" onclick="showSection('dashboard')" class="active">🏠 Dashboard</a>
+    <a href="#" onclick="showSection('cars')">🚗 Cars</a>
+    <a href="#" onclick="showSection('bikes')">🏍️ Bikes</a>
+    <a href="#" onclick="showSection('brands')">🏢 Brands</a>
+    <a href="#" onclick="showSection('rentals')">🧾 Rentals</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+
+    <!-- Dashboard Section -->
+    <section id="dashboard">
+      <h2>Admin Dashboard</h2>
+      <div class="row text-center mb-4">
+        <div class="col-md-4 mb-3">
+          <div class="card bg-primary text-white">
+            <div class="card-body">
+              <h5>Total Cars</h5>
+              <h3>10</h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card bg-success text-white">
+            <div class="card-body">
+              <h5>Total Bikes</h5>
+              <h3>8</h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card bg-info text-white">
+            <div class="card-body">
+              <h5>Total Rentals</h5>
+              <h3>25</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🚗 Cars Section -->
+    <section id="cars" class="hidden-section">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Car Management</h2>
+        <button class="btn btn-primary">+ Add New Car</button>
+      </div>
+
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Search car by name or brand">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button">Search</button>
+        </div>
+      </div>
+
+      <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>#</th>
+            <th>Car Name</th>
+            <th>Brand</th>
+            <th>Price / Day</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Toyota Corolla</td>
+            <td>Toyota</td>
+            <td>₹2000</td>
+            <td><span class="badge badge-success">Available</span></td>
+            <td>
+              <button class="btn btn-sm btn-warning">Edit</button>
+              <button class="btn btn-sm btn-danger">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Honda City</td>
+            <td>Honda</td>
+            <td>₹2200</td>
+            <td><span class="badge badge-danger">Rented</span></td>
+            <td>
+              <button class="btn btn-sm btn-warning">Edit</button>
+              <button class="btn btn-sm btn-danger">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 🏍️ Bikes Section -->
+    <section id="bikes" class="hidden-section">
+      <h2>Bike Management</h2>
+      <p>Bike list will be shown here...</p>
+    </section>
+
+    <!-- 🧾 Rentals Section -->
+    <section id="rentals" class="hidden-section">
+      <h2>Rental Management</h2>
+      <p>Rental records will be shown here...</p>
+    </section>
+  </div>
+
+  <!-- Script to Switch Sections -->
+  <script>
+    function showSection(sectionId) {
+      document.querySelectorAll('section').forEach(sec => sec.classList.add('hidden-section'));
+      document.getElementById(sectionId).classList.remove('hidden-section');
+      document.querySelectorAll('.sidebar a').forEach(link => link.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>

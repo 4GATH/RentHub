@@ -1,0 +1,53 @@
+{% extends 'base.html'%} {% load static %} {% block title %}home{% endblock%}
+{%block style %}
+<!-- <link rel="stylesheet" href="{% static 'css/home.css'%}" /> -->
+{% endblock%} {% block content%}
+
+<div class="container mt-4">
+  <h2>{{ bike_category.name }} Brands</h2>
+
+  <div class="row">
+    {% for brand in bike_brands %}
+    <div class="col-md-3 mb-4 text-center">
+      <div class="card p-2">
+        {% if brand.logo %}
+        <img
+          src="/media/{{ brand.logo }}"
+          class="card-img-top"
+          alt="{{ brand.brand_name }}"
+          style="height: 120px; object-fit: contain"
+        />
+        {% endif %}
+        <div class="card-body">
+          <h5>{{ brand.brand_name }}</h5>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <hr />
+
+  <h3>Available Bikes</h3>
+  <div class="row">
+    {% for p in bike_products %}
+    <div class="col-md-3 mb-4">
+      <div class="card">
+        <img
+          src="/media/{{ p.image }}"
+          class="card-img-top"
+          alt="{{ p.name }}"
+          style="height: 150px; object-fit: cover"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ p.name }}</h5>
+          <p>₹{{ p.price }}</p>
+          <a href="/viewproduct/{{ p.id }}/" class="btn btn-primary btn-sm">Rent Now</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock%}

@@ -1,0 +1,61 @@
+body {
+  background-color: #f4f6f9;
+   font-family: "Lato", sans-serif; 
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #343a40 !important;
+}
+.navbar-brand {
+  color: #fff !important;
+  font-weight: bold;
+}
+.navbar  p{
+  color: #e6e4ea;
+}
+
+.my-sm-0{
+  margin: 5px;
+}
+
+/* Layout */
+.main-container {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 56px); /* subtract navbar height */
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background-color: #212529;
+  color: #fff;
+  padding-top: 20px;
+  height: 100%;
+  flex-shrink: 0;
+}
+.sidebar h5 {
+  color: #fff;
+}
+.sidebar a {
+  color: #adb5bd;
+  text-decoration: none;
+  display: block;
+  padding: 10px 25px;
+  transition: 0.3s;
+}
+.sidebar a:hover {
+  background-color: #343a40;
+  color: #fff;
+}
+
+/* Right Content Area */
+.content-area {
+  flex: 1;
+  padding: 0px;
+  background-color: #ffffff;
+  overflow-y: auto;
+}
